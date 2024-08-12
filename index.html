@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My JS</title>
+</head>
+<body>
+<h1>
+  Lorem ipsum dolor sit amet.
+</h1>
+<script type="module">
+    import { CalorieCalculator, UniqueUsernames } from './js/main.js'
+
+    // #1
+    const calorieCalculator = new CalorieCalculator();
+    calorieCalculator.addProduct('Apple', 52);
+    calorieCalculator.addProduct('Banana', 89);
+
+    console.log(calorieCalculator.getProductCalories('Apple',)); // 52
+    console.log(calorieCalculator.getProductCalories('Banana')); // 89
+
+    calorieCalculator.removeProduct('Apple');
+    console.log(calorieCalculator.getProductCalories('Apple')); // Product not found
+
+    // #2
+    const uniqueUsernames = new UniqueUsernames();
+    uniqueUsernames.addUser('john_doe');
+    uniqueUsernames.addUser('jane_doe');
+    uniqueUsernames.addUser('john_doe'); // Ця дія не змінить набір, оскільки 'john_doe' вже існує
+
+    console.log(`Існує 'john_doe': ${uniqueUsernames.exists('john_doe')}`); // true
+    console.log(`Кількість унікальних імен: ${uniqueUsernames.count()}`); // 2
+</script>
+</body>
+</html>
